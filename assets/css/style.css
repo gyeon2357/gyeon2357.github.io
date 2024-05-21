@@ -310,7 +310,7 @@ body {
   display: flex;
   justify-content: center;
 
-    transform: translate(0, 0);
+  transform: translate(0, 0);
 }
 
 .preloader-sub .preloader-sub_logo svg {
@@ -407,9 +407,41 @@ main {
 
   font-size: 0.625rem;
   font-weight: 400;
+  vertical-align: 50%;
+  line-height: 1.5;
 
   padding-top: 0.5rem;
-  transition: color 0.25s;
+  margin-left: 1.125rem;
+  transition: opacity 0.25s;
+}
+
+.header__container figure > a > span {
+  content: "→";
+
+  position: absolute;
+  transform: translateX(-1.25rem);
+
+  font-size: 0.375rem;
+
+  vertical-align: 100%;
+  text-align: center;
+
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 14px;
+  height: 14px;
+  margin: 0 auto;
+
+  background: var(--color-link-darkolive);
+  color: var(--color-link-olive);
+  border-radius: 100%;
+}
+
+.header__container figure > a:hover {
+  opacity: 0.6;
 }
 
 header {
@@ -450,11 +482,11 @@ header {
 
   font-size: 0.75rem;
   line-height: 1.6;
-  transition: color 0.25s;
+  transition: opacity 0.25s;
 }
 
 .header__wrapper > div > a:hover {
-  color: var(--color-link-white);
+  opacity: 0.7;
 }
 
 .header__wrapper > div > a.open {
@@ -550,7 +582,7 @@ header {
   top: 0.375rem;
   margin: 0 0 0 1rem;
 
-  color: var(--color-link-darkolive);
+  color: var(--color-text);
 
   font-size: 1.375rem;
   font-weight: 600;
@@ -581,6 +613,8 @@ header {
   font-style: normal;
   writing-mode: initial;
   vertical-align: top;
+
+  transform: translateY(-0.25rem);
   margin: -0.25rem 0 0.375rem;
 }
 
@@ -592,7 +626,7 @@ header {
   font-weight: 500;
   letter-spacing: -0.25px;
   margin: 0 0 0.15rem;
-  color: var(--color-link-darkolive);
+  color: var(--color-text);
 }
 
 .grid__item-number > span {
@@ -674,7 +708,7 @@ header {
 
 .content__item-title {
   position: relative;
-  font-size: 5vw;
+  font-size: 1.5rem;
   line-height: 1;
   text-align: center;
   color: var(--color-link-olive);
@@ -721,6 +755,21 @@ header {
   margin: 0;
 }
 
+.content_cr {
+  padding-bottom: 1rem;
+}
+
+.content__item-text p > a {
+  text-decoration: underline;
+  text-underline-position: under;
+
+  color: var(--color-link-darkolive);
+}
+
+.content__item-text p > sup {
+  color: var(--color-link-darkolive);
+}
+
 .content__item-text h3 {
   font-size: 1.25rem;
   margin-block-end: 0.33em;
@@ -742,7 +791,6 @@ header {
 }
 
 .content__item-subtitle,
-.content__item-text h5,
 .content__item-text h4,
 .content__item-text h3,
 .content__item-text p {
@@ -756,6 +804,20 @@ header {
 .content__item-text figure > img {
   width: 100%;
   padding: 0.25rem 0;
+}
+
+.content__item-text figure > figcaption {
+  font-size: 0.75rem;
+  font-style: italic;
+
+  margin-bottom: 0.5rem;
+}
+
+.content__item-text.column_count_1 figure > img {
+  max-width: 640px;
+  padding: 0.25rem 0;
+
+  margin: 0 auto;
 }
 
 .content__item-text > hr {
@@ -842,7 +904,7 @@ header {
   }
 
   .header__container figure > figcaption {
-    width: 52ch;
+    width: 54ch;
   }
 
   .header__wrapper:nth-child(2) {
@@ -864,6 +926,11 @@ header {
   .grid__item-title {
     margin-left: -0.25rem;
   }
+
+  .content__item-title {
+    font-size: 4vw;
+  }
+
   .content__item-subtitle {
     font-size: 2vw;
   }
