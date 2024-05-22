@@ -720,3 +720,13 @@ function subLoadDone() {
     display: "none",
   });
 }
+
+// footer year func
+  const date = new Date();
+  const year = date.getFullYear();
+
+
+
+  $('.copyright__year').each(function () {
+    $(this).html(year);
+});

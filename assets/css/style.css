@@ -394,7 +394,7 @@ main {
 
 .header__container figure > figcaption {
   display: inline;
-  width: 100%;
+  width: 90%;
 
   font-size: 0.75rem;
   font-weight: 400;
@@ -546,6 +546,9 @@ header {
   margin-bottom: 6rem;
 }
 
+.grid__item:focus {
+}
+
 .grid__item-wrap {
   position: relative;
 }
@@ -605,6 +608,7 @@ header {
 
 .grid__item-title > span.kr {
   text-orientation: inherit;
+  letter-spacing: -0.1px;
 }
 
 .grid__item-title > em {
@@ -778,6 +782,7 @@ header {
 
 .content__item-text p > sup {
   color: var(--color-link-darkolive);
+  margin-right: 0.125rem;
 }
 
 .content__item-text h3 {
@@ -882,6 +887,54 @@ header {
   cursor: pointer;
 }
 
+.mobile__top__button {
+  display: block;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.top__button {
+  position: relative;
+
+  font-size: 0.75rem;
+  background: var(--color-link-olive);
+  color: var(--color-bg);
+  border-radius: 24px;
+  border: 0;
+
+  padding: 8px 16px;
+  transition: opacity 0.25s;
+  cursor: pointer;
+}
+
+.top__button:hover {
+  opacity: 0.7;
+  color: var(--color-bg);
+}
+
+.copyright__container {
+  text-align: center;
+  margin: 3rem auto;
+}
+
+.copyright__container > sub {
+  font-size: 0.625rem;
+  line-height: 3;
+  color: var(--ssh-black-500);
+}
+
+.copyright__container > sub > a:hover {
+  text-decoration: underline;
+  text-underline-position: under;
+  color: var(--ssh-black-500);
+}
+
+/* 
+.content__close:hover,
+.content__item__button:hover {
+  opacity: 0.7;
+} */
+
 .content__indicator {
   position: absolute;
   top: calc(100vh - 6rem);
@@ -941,6 +994,14 @@ header {
   .content__close,
   .content__item__button {
     font-size: 1rem;
+  }
+
+  .mobile__top__button {
+    display: none;
+  }
+
+  .copyright__container {
+    margin: 1.5rem auto;
   }
 
   .content__item-title {
