@@ -27,7 +27,7 @@
   const randNumber = (min, max) =>
     Math.floor(Math.random() * (max - min + 1)) + min;
   // Gets the mouse position. From http://www.quirksmode.org/js/events_properties.html#position
-  const getMousePos = (e) => {
+  const getMousePos = e => {
     let posx = 0;
     let posy = 0;
     if (!e) e = window.event;
@@ -44,10 +44,10 @@
         document.body.scrollTop +
         document.documentElement.scrollTop;
     }
-    return { x: posx, y: posy };
+    return {x: posx, y: posy};
   };
   // Returns the rotation angle of an element.
-  const getAngle = (el) => {
+  const getAngle = el => {
     const st = window.getComputedStyle(el, null);
     const tr = st.getPropertyValue("transform");
     let values = tr.split("(")[1];
@@ -56,13 +56,13 @@
     return Math.round(Math.asin(values[1]) * (180 / Math.PI));
   };
   // Scroll control functions. Taken from https://stackoverflow.com/a/4770179.
-  const keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
-  const preventDefault = (e) => {
+  const keys = {37: 1, 38: 1, 39: 1, 40: 1};
+  const preventDefault = e => {
     e = e || window.event;
     if (e.preventDefault) e.preventDefault();
     e.returnValue = false;
   };
-  const preventDefaultForScrollKeys = (e) => {
+  const preventDefaultForScrollKeys = e => {
     if (keys[e.keyCode]) {
       preventDefault(e);
       return false;
@@ -89,7 +89,7 @@
   // The GridItem class.
   class GridItem {
     constructor(el) {
-      this.DOM = { el: el };
+      this.DOM = {el: el};
       // The rectangle element around the image.
       this.DOM.bg = this.DOM.el.querySelector(".grid__item-bg");
       // The following DOM elements are elements that will move/tilt when hovering the item.
@@ -107,9 +107,9 @@
       this.DOM.numberLetters = this.DOM.tilt.number.querySelectorAll("span");
       // Configuration for when moving/tilting the elements on hover.
       this.tiltconfig = {
-        title: { translation: { x: [-8, 8], y: [4, -4] } },
-        number: { translation: { x: [-5, 5], y: [-10, 10] } },
-        img: { translation: { x: [-15, 15], y: [-10, 10] } },
+        title: {translation: {x: [-8, 8], y: [4, -4]}},
+        number: {translation: {x: [-5, 5], y: [-10, 10]}},
+        img: {translation: {x: [-15, 15], y: [-10, 10]}},
       };
       // Get the rotation angle value of the image element.
       // This will be used to rotate the DOM.bg to the same value when expanding/opening the item.
@@ -131,7 +131,7 @@
        * - Scale down the DOM.bg element.
        * - Animate the number letters.
        */
-      this.toggleAnimationOnHover = (type) => {
+      this.toggleAnimationOnHover = type => {
         // Scale up the bg element.
         TweenMax.to(this.DOM.bg, 1, {
           ease: Expo.easeOut,
@@ -161,16 +161,16 @@
           });
         });
       };
-      this.mouseenterFn = (ev) => {
+      this.mouseenterFn = ev => {
         if (!allowTilt) return;
         this.toggleAnimationOnHover(ev.type);
       };
-      this.mousemoveFn = (ev) =>
+      this.mousemoveFn = ev =>
         requestAnimationFrame(() => {
           if (!allowTilt) return;
           this.tilt(ev);
         });
-      this.mouseleaveFn = (ev) => {
+      this.mouseleaveFn = ev => {
         if (!allowTilt) return;
         this.resetTilt();
         this.toggleAnimationOnHover(ev.type);
@@ -267,7 +267,7 @@
   // The Content class. Represents one content item per grid item.
   class Content {
     constructor(el) {
-      this.DOM = { el: el };
+      this.DOM = {el: el};
       // The content elements: image, title, subtitle and text.
       this.DOM.img = this.DOM.el.querySelector(".content__item-img");
       this.DOM.title = this.DOM.el.querySelector(".content__item-title");
@@ -299,7 +299,7 @@
                 : show
                 ? pos * 0.05
                 : (this.titleLettersTotal - pos - 1) * 0.04,
-              startAt: show ? { y: "0%", opacity: 0 } : null,
+              startAt: show ? {y: "0%", opacity: 0} : null,
               y: show ? "0%" : "0%",
               opacity: show ? 1 : 0,
             });
@@ -315,13 +315,13 @@
   // The Grid class.
   class Grid {
     constructor(el) {
-      this.DOM = { el: el };
+      this.DOM = {el: el};
       // The grid wrap.
       this.DOM.gridWrap = this.DOM.el.parentNode;
       // The grid items.
       this.items = [];
-      Array.from(this.DOM.el.querySelectorAll(".grid__item")).forEach(
-        (itemEl) => this.items.push(new GridItem(itemEl))
+      Array.from(this.DOM.el.querySelectorAll(".grid__item")).forEach(itemEl =>
+        this.items.push(new GridItem(itemEl))
       );
       // The total number of items.
       this.itemsTotal = this.items.length;
@@ -329,7 +329,7 @@
       this.contents = [];
       Array.from(
         document.querySelectorAll(".content > .content__item")
-      ).forEach((contentEl) => this.contents.push(new Content(contentEl)));
+      ).forEach(contentEl => this.contents.push(new Content(contentEl)));
       // Back control and scroll indicator (elements shown when the item´s content is open).
       this.DOM.closeCtrl = document.querySelector(".content__close");
       this.DOM.scrollIndicator = document.querySelector(".content__indicator");
@@ -342,7 +342,7 @@
       // Clicking a grid item hides all the other grid items (ordered by proximity to the clicked one)
       // and expands/opens the clicked one.
       for (let item of this.items) {
-        item.DOM.el.addEventListener("click", (ev) => {
+        item.DOM.el.addEventListener("click", ev => {
           ev.preventDefault();
           this.openItem(item);
         });
@@ -520,7 +520,7 @@
         {
           ease: show ? Expo.easeOut : Expo.easeIn,
           delay: withAnimation ? delay : 0,
-          startAt: show ? { y: 60 } : null,
+          startAt: show ? {y: 60} : null,
           y: show ? 0 : 60,
           opacity: show ? 1 : 0,
         }
@@ -569,7 +569,7 @@
     toggleAllItems(exclude, withAnimation, show = true) {
       if (!withAnimation) {
         this.items
-          .filter((item) => item != exclude)
+          .filter(item => item != exclude)
           .forEach((item, pos) => item[show ? "show" : "hide"](withAnimation));
       } else {
         const refrect = exclude.DOM.el.getBoundingClientRect();
@@ -579,7 +579,7 @@
         };
         this.sortByDist(
           refPoint,
-          this.items.filter((item) => item != exclude)
+          this.items.filter(item => item != exclude)
         ).forEach((item, pos) =>
           setTimeout(
             () => item[show ? "show" : "hide"](),
@@ -600,7 +600,7 @@
   // Window sizes.
   let winsize;
   const calcWinsize = () =>
-    (winsize = { width: window.innerWidth, height: window.innerHeight });
+    (winsize = {width: window.innerWidth, height: window.innerHeight});
   calcWinsize();
   window.addEventListener("resize", calcWinsize);
 
@@ -620,57 +620,7 @@
   });
 }
 
-// loading
-var target = document.querySelector("[data-preloader]");
-var targetCover = target.querySelector('[data-preloader="cover"]');
-var targetLogo = target.querySelector('[data-preloader="logo"]');
-var targetLogoAfter = target.querySelector('[data-preloader="logo-after"]');
-var done = 0;
-var loadFlag = 0;
-
-gsap.to(targetLogoAfter, {
-  clipPath: "inset(0% 0% 0% 0%)",
-  // opacity: 1,
-  duration: 1.2,
-  ease: "power3.inOut",
-  onComplete: () => {
-    console.log("Done");
-    done = 1;
-    if (loadFlag == 1) {
-      loadDone();
-    }
-  },
-});
-$(window).on("load", function () {
-  console.log("loadDone");
-  loadFlag = 1;
-  if (done == 1) {
-    loadDone();
-  }
-});
-function loadDone() {
-  gsap.to(targetCover, {
-    // clipPath: "inset(0% 0% 100% 0%)",
-    opacity: 0,
-    duration: 0.8,
-    //delay: 2,
-    ease: "power3.inOut",
-  });
-  gsap.to(targetLogo, {
-    y: -window.innerHeight * 0.02,
-    duration: 0.8,
-    //delay: 2,
-    ease: "power3.inOut",
-  });
-  gsap.to("#ssh_preloader", {
-    // delay: 1,
-    duration: 1,
-    display: "none",
-  });
-}
-
-// splash-sub
-
+// preloader
 var subTarget = document.querySelector("[data-preloader]");
 var subTargetCover = subTarget.querySelector('[data-preloader="sub-cover"]');
 var subTargetLogo = subTarget.querySelector('[data-preloader="sub-logo"]');
@@ -687,16 +637,16 @@ gsap.to(subTargetLogoAfter, {
   ease: "power3.inOut",
   onComplete: () => {
     console.log("Done");
-    done = 1;
-    if (loadFlag == 1) {
+    subDone = 1;
+    if (subLoadFlag == 1) {
       subLoadDone();
     }
   },
 });
 $(window).on("load", function () {
   console.log("subLoadDone");
-  loadFlag = 1;
-  if (done == 1) {
+  subLoadFlag = 1;
+  if (subDone == 1) {
     subLoadDone();
   }
 });
@@ -722,11 +672,9 @@ function subLoadDone() {
 }
 
 // footer year func
-  const date = new Date();
-  const year = date.getFullYear();
+const date = new Date();
+const year = date.getFullYear();
 
-
-
-  $('.copyright__year').each(function () {
-    $(this).html(year);
+$(".copyright__year").each(function () {
+  $(this).html(year);
 });
