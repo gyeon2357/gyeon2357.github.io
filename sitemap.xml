@@ -23,6 +23,14 @@
   <loc>https://archive.sansuhwa.com/exhibition-20/</loc>
   <priority>0.80</priority>
 </url>
+<url>
+  <loc>https://archive.sansuhwa.com/workshop-18/</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://archive.sansuhwa.com/workshop-24/</loc>
+  <priority>0.80</priority>
+</url>
 
 
 </urlset>
