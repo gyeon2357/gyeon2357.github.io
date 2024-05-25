@@ -28,7 +28,6 @@ html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-
   -webkit-tap-highlight-color: #d3c6a029;
 }
 body {
@@ -60,10 +59,7 @@ hr {
   box-sizing: content-box;
   height: 0;
 }
-mark {
-  background: #ff0;
-  color: #000;
-}
+
 code,
 kbd,
 pre,
@@ -172,6 +168,8 @@ table {
   box-sizing: border-box;
 }
 
+/* .. normalize */
+
 body {
   --ssh-brown-700: #4a3428;
   --ssh-brown-500: #5a4030;
@@ -226,9 +224,8 @@ body {
     "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     sans-serif;
   min-height: 100vh;
-  color: #57585c;
+
   color: var(--color-text);
-  background-color: #fff;
   background-color: var(--color-bg);
 }
 
@@ -286,6 +283,8 @@ body {
   }
 }
 
+/* page loader end */
+
 a {
   text-decoration: none;
   color: var(--color-link);
@@ -304,15 +303,6 @@ a:focus {
   width: 0;
   height: 0;
   pointer-events: none;
-}
-
-/* Icons */
-.icon {
-  display: block;
-  width: 1.5em;
-  height: 1.5em;
-  margin: 0 auto;
-  fill: currentColor;
 }
 
 main {
@@ -542,8 +532,6 @@ header {
   line-height: 1.2;
   letter-spacing: 0.25px;
   word-break: keep-all;
-  /* -webkit-writing-mode: vertical-rl;
-  writing-mode: vertical-rl; */
 
   transform-origin: 0 50%;
   transition: color 0.125s;
@@ -585,10 +573,6 @@ header {
   font-weight: 500;
   letter-spacing: -0.25px;
   word-spacing: 0;
-
-  /* text-orientation: upright;
-  letter-spacing: -3px;
-  word-spacing: -2px; */
 
   color: var(--color-text);
 }
