@@ -28,6 +28,8 @@ html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+
+  -webkit-tap-highlight-color: #d3c6a029;
 }
 body {
   margin: 0;
