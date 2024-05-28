@@ -484,8 +484,8 @@ header {
   margin-bottom: 4.75rem;
 }
 
-.grid__item:focus {
-}
+/* .grid__item:focus {
+} */
 
 .grid__item-wrap {
   position: relative;
