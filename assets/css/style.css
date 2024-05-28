@@ -723,9 +723,13 @@ header {
 
 .content__item-text p > a {
   text-decoration: underline;
-  text-underline-position: under;
 
   color: var(--color-link-darkolive);
+  transition: color 0.25s;
+}
+
+.content__item-text p > a:hover {
+  color: var(--color-info);
 }
 
 .content__item-text p > sup {
