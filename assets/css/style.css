@@ -177,6 +177,7 @@ body {
   --ssh-brown-200: #cfb6a7;
   --ssh-brown-100: #f4efec;
 
+  --ssh-olive-900: #1e1a0f;
   --ssh-olive-700: #342d18;
   --ssh-olive-500: #84733e;
   --ssh-olive-400: #b39e5d;
@@ -428,14 +429,20 @@ header {
 }
 
 .header__wrapper > div > a.open {
-  color: var(--color-link-white);
+  width: fit-content;
   font-weight: 700;
+
+  color: var(--color-link-white);
+
   cursor: not-allowed;
 }
 
 .header__wrapper > div > a.open::before {
-  content: "-";
-  margin-right: 4px;
+  content: "❍";
+  font-size: 0.625rem;
+  margin-right: 6px;
+
+  vertical-align: 5%;
 }
 
 .header__wrapper > figure > img {
@@ -872,13 +879,13 @@ header {
 .copyright__container > sub {
   font-size: 0.625rem;
   line-height: 3;
-  color: var(--ssh-black-500);
+  color: var(--color-link-lightolive);
+  opacity: 0.4;
 }
 
 .copyright__container > sub > a:hover {
   text-decoration: underline;
   text-underline-position: under;
-  color: var(--ssh-black-500);
 }
 
 /* 
