@@ -728,14 +728,14 @@ header {
   padding-bottom: 1rem;
 }
 
-.content__item-text p > a {
+.content__item-text p > a, .content__item-text h4 > a, .content__item-text h5 > a {
   text-decoration: underline;
 
   color: var(--color-link-darkolive);
   transition: color 0.25s;
 }
 
-.content__item-text p > a:hover {
+.content__item-text p > a:hover, .content__item-text h4 > a:hover, .content__item-text h5 > a:hover {
   color: var(--color-info);
 }
 
