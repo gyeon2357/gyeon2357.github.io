@@ -424,25 +424,26 @@ header {
   transition: opacity 0.25s;
 }
 
+.header__wrapper > div > a::before {
+  content: "\25A1";
+  font-size: 0.625rem;
+  margin-right: 6px;
+
+  vertical-align: 5%;
+}
+
 .header__wrapper > div > a:hover {
   opacity: 0.7;
 }
 
 .header__wrapper > div > a.open {
   width: fit-content;
-  font-weight: 700;
-
-  color: var(--color-link-white);
-
+  color: var(--ssh-olive-100);
   cursor: not-allowed;
 }
 
 .header__wrapper > div > a.open::before {
-  content: "❍";
-  font-size: 0.625rem;
-  margin-right: 6px;
-
-  vertical-align: 5%;
+  content: "\25A0";
 }
 
 .header__wrapper > figure > img {
@@ -456,7 +457,7 @@ header {
 .header__title {
   font-size: 0.9rem;
   line-height: 1.875;
-  font-weight: 700;
+  font-weight: 600;
   text-align: left;
   margin: 0;
   padding: 0;
