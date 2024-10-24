@@ -207,7 +207,7 @@ body {
   --ssh-overlay-20: #00000020;
   --ssh-overlay-40: #00000040;
 
-  --color-bg: #171717;
+  --color-bg: #111;
   --grid-item-bg: #f8f6f0;
 
   --color-text: #342d18;
@@ -339,6 +339,8 @@ main {
   font-weight: 400;
   line-height: 1.68;
   word-break: keep-all;
+
+  padding-bottom: 0.5rem;
 }
 
 .header__container figure > a {
@@ -374,8 +376,8 @@ main {
   height: 14px;
   margin: 0 auto;
 
-  background: var(--color-link-darkolive);
-  color: var(--color-link-olive);
+  background: var(--ssh-olive-200);
+  color: var(--ssh-olive-900);
   border-radius: 100%;
 }
 
