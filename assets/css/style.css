@@ -458,7 +458,7 @@ header {
 
 .header__title {
   font-size: 0.9rem;
-  line-height: 1.875;
+  line-height: 1.5;
   font-weight: 600;
   text-align: left;
   margin: 0;
@@ -962,7 +962,6 @@ header {
     text-align: left;
 
     font-size: 1rem;
-    line-height: 2;
   }
 
   .header__container figure > figcaption {
@@ -1004,7 +1003,7 @@ header {
   }
 
   .content__item-subtitle {
-    font-size: 2vw;
+    font-size: 1.75vw;
   }
   .content__item-text {
     -moz-column-count: 2;
