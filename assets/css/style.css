@@ -679,7 +679,7 @@ header {
 .js .content__item--current {
   height: auto;
   opacity: 1;
-  padding: 6rem 5vw 10rem;
+  padding: 6rem 5vw 15rem;
   pointer-events: auto;
 }
 
